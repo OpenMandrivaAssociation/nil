@@ -26,7 +26,7 @@ Patch4:		nil-64.patch
 URL:		http://nil.sf.net/
 BuildRequires:	SDL-devel 
 BuildRequires:  SDL_mixer-devel 
-BuildRequires:  XFree86-devel 
+BuildRequires:  X11-devel 
 BuildRequires:  zlib-devel
 BuildRequires:  automake1.4
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
