@@ -63,11 +63,15 @@ cp nil/nil/nil %{buildroot}/%{_bindir}
 cp -a gfx %{buildroot}/%{_datadir}/nil
 rm -rf %{buildroot}/%{_datadir}/nil/gfx/{CVS,*/CVS,*/*/CVS,*/*/*/CVS}
 
-mkdir -p %{buildroot}/%{_menudir}
-cat << EOF > %{buildroot}/%{_menudir}/%{name}
-?package(%{name}):command="%{_bindir}/%{name}" icon="%{icon}" \
-  needs="x11" section="%{section}" title="%{title}" \
-  longtitle="%{summary}"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=%{_bindir}/%{name}
+Icon=%{icon}  
+Categories=%{section}
+Name=%{title}  
+Comment=%{summary}
 EOF
 
 mkdir -p %{buildroot}{%{_iconsdir},%{_liconsdir},%{_miconsdir}}
@@ -92,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 %{_miconsdir}/%{icon}
 %{_iconsdir}/%{icon}
 %{_liconsdir}/%{icon}
