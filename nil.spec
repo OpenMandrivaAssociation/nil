@@ -30,6 +30,7 @@ BuildRequires:  X11-devel
 BuildRequires:  zlib-devel
 BuildRequires:  automake1.4
 BuildRequires:  autoconf2.1
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 Requires:	common-licenses
 
 %description
