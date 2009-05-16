@@ -34,12 +34,12 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 Requires:	common-licenses
 
 %description
-The game itself can be described either as Quake in 2D or worms done right
-(ie not turn based), the basic game play is kill kill kill, with a wide
-selection of interesting weapons.
+From the author : "The game itself can be described either as Quake in 2D or 
+worms done right (ie not turn based), the basic game play is kill kill kill, 
+with a wide selection of interesting weapons."
 
-Porting apparently wasn't much of a priority for the authour, so I set
-about reimplementing it on Linux.
+This game is no more under development and was never completed. Similar games
+of interest exist : openlierox, hedgewars... 
 
 %prep
 %setup -q -n %{name}
