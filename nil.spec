@@ -1,18 +1,17 @@
 %define name	nil
 %define title	NiL
 %define version	000516
-%define release %mkrel 23
+%define release %mkrel 24
 %define prefix	%{_prefix}
 %define summary	%{title} Isn't Liero
 %define group	Games/Arcade
-%define section	Amusement/Arcade
 %define icon	%{name}.png
 
 Summary:	%{summary}
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-License:	GPL
+License:	GPLv2+
 Group:		%{group}
 Source:		http://dl.sf.net/nil/%{name}-%{version}.tar.bz2
 Source10:	%{name}.16.png.bz2
@@ -23,6 +22,7 @@ Patch1:		nil-000516-i18ned-keys.patch
 Patch2:		nil-remove-debug-printings.patch
 Patch3: nil-000516-gcc31.patch
 Patch4:		nil-64.patch
+Patch5:		nil-000516-gcc43.patch
 URL:		http://nil.sf.net/
 BuildRequires:	SDL-devel 
 BuildRequires:  SDL_mixer-devel 
@@ -48,6 +48,7 @@ about reimplementing it on Linux.
 %patch2 -p0
 %patch3 -p0
 %patch4 -p1
+%patch5 -p1
 # remove nasty no-newline-at-end-of-line, it bothers gcc-2.96
 find . -name "*.h" -exec perl -pi -e '$_.="\n" if eof' {} \;
 
@@ -70,7 +71,7 @@ cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 Type=Application
 Exec=%{_bindir}/%{name}
 Icon=%{icon}  
-Categories=%{section}
+Categories=Game;ArcadeGame;
 Name=%{title}  
 Comment=%{summary}
 EOF
