@@ -1,7 +1,7 @@
 %define name	nil
 %define title	NiL
 %define version	000516
-%define release %mkrel 24
+%define release %mkrel 25
 %define prefix	%{_prefix}
 %define summary	%{title} Isn't Liero
 %define group	Games/Arcade
