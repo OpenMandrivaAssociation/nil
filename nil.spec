@@ -23,15 +23,12 @@ Patch2:		nil-remove-debug-printings.patch
 Patch3: nil-000516-gcc31.patch
 Patch4:		nil-64.patch
 Patch5:		nil-000516-gcc43.patch
+Patch6:		nil-gcc44.patch
 URL:		http://nil.sf.net/
 BuildRequires:	SDL-devel 
 BuildRequires:  SDL_mixer-devel 
-BuildRequires:  X11-devel 
 BuildRequires:  zlib-devel
-BuildRequires:  automake1.4
-BuildRequires:  autoconf2.1
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-Requires:	common-licenses
 
 %description
 From the author : "The game itself can be described either as Quake in 2D or 
@@ -49,17 +46,18 @@ of interest exist : openlierox, hedgewars...
 %patch3 -p0
 %patch4 -p1
 %patch5 -p1
+%patch6 -p0
 # remove nasty no-newline-at-end-of-line, it bothers gcc-2.96
 find . -name "*.h" -exec perl -pi -e '$_.="\n" if eof' {} \;
 
 %build
 cd nil
-autoconf-2.13
-automake-1.4 -a
-%configure
+autoreconf -fi
+%configure2_5x
 make
 
 %install
+rm -fr %buildroot
 mkdir -p %{buildroot}{%{_bindir},%{_datadir}/nil}
 cp nil/nil/nil %{buildroot}/%{_bindir}
 cp -a gfx %{buildroot}/%{_datadir}/nil
