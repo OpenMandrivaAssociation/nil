@@ -1,0 +1,53 @@
+--- ./nil/nil/systemheaders.h.gege	2002-05-29 10:24:26.000000000 +0200
++++ ./nil/nil/systemheaders.h	2002-05-29 10:27:13.000000000 +0200
+@@ -24,7 +24,7 @@
+ #include <math.h>
+ #include <errno.h>
+ #include <stdarg.h>
+-#include <iostream.h>
++#include <iostream>
+ #include <signal.h>
+ 
+ //POSIX.1b
+--- ./nil/nil/animation.h.gege	2002-05-29 10:24:26.000000000 +0200
++++ ./nil/nil/animation.h	2002-05-29 10:28:29.000000000 +0200
+@@ -25,7 +25,7 @@
+ class Animator;
+ class Animation {
+ public:
+-	friend Animator;
++	friend class Animator;
+ 
+ 	Animation();
+ 	~Animation();
+--- ./nil/nil/world.h.gege	2002-05-29 10:24:26.000000000 +0200
++++ ./nil/nil/world.h	2002-05-29 10:29:20.000000000 +0200
+@@ -32,13 +32,11 @@
+ 	int sound_id;
+ 
+   int flags;
+-	union {
+ 		int object_id;
+ 		struct abspos {
+ 			float x_pos;
+ 			float y_pos;
+ 		};
+-	};
+ };
+ 
+ /*
+--- ./nil/nil/anim_helpers.cpp.gege	2000-05-11 18:05:15.000000000 +0200
++++ ./nil/nil/anim_helpers.cpp	2002-05-29 10:56:35.000000000 +0200
+@@ -209,9 +209,9 @@
+   	i++;
+ 	}
+ 
+-	if (hit != end())
+-  	return hit;
+-	else {
++	if (hit != end()) {
++	  return &(*hit);
++	} else {
+ 		logmsg(lt_debug,"Unable to find a suitable aim_id for elevation: %.2f (%i angles were tried)",elevation,size());
+ 		return NULL;
+ 	}

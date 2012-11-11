@@ -1,0 +1,20 @@
+--- ./nil/nil/tcp_socket.cpp~	2000-02-15 04:49:22.000000000 +0100
++++ ./nil/nil/tcp_socket.cpp	2006-12-02 13:39:55.000000000 +0100
+@@ -21,7 +21,7 @@
+     int recv_result = recv(s,((char*)buf)+bytes_done,bytes_left,0);
+ 
+ 		if (recv_result < 0) {
+-			logmsg(lt_error,"recv(%i,((char*)%x)+%i,%i,0); returned %i (%s)",s,(int)buf,bytes_done,bytes_left,errno,strerror(errno));
++			logmsg(lt_error,"recv(%i,((char*)%p)+%i,%i,0); returned %i (%s)",s,buf,bytes_done,bytes_left,errno,strerror(errno));
+ 			return -2; //uh, it went bad.
+ 
+ 		} else if (recv_result > 0) {
+@@ -52,7 +52,7 @@
+     int send_result = send(s,((char*)buf)+bytes_done,bytes_left,0);
+ 
+ 		if (send_result < 0) {
+-			logmsg(lt_error,"send(%i,((char*)%x)+%i,%i,0); returned %i (%s)",s,(int)buf,bytes_done,bytes_left,errno,strerror(errno));
++			logmsg(lt_error,"send(%i,((char*)%p)+%i,%i,0); returned %i (%s)",s,buf,bytes_done,bytes_left,errno,strerror(errno));
+ 			return -2; //uh, it went bad.
+ 
+ 		} else if (send_result > 0) {

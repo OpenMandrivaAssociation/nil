@@ -1,0 +1,20 @@
+--- nil/nil/fluff.cpp.gcc	2011-01-28 16:40:01.000000000 +0100
++++ nil/nil/fluff.cpp	2011-01-28 16:40:50.000000000 +0100
+@@ -154,7 +154,7 @@
+ 	//see if there is a ~ to expand:
+ 	if (source[0] == '~') {
+ 
+-	  char *static_source = NULL;
++	  const char *static_source = NULL;
+ 		struct passwd *passwd_entry=NULL;
+ 		source++;
+ 		
+@@ -165,7 +165,7 @@
+ 		
+ 		} else {
+ 			//named user:
+-			char *slash = strchr(source, '/');
++			const char *slash = strchr(source, '/');
+ 			if (slash) {
+ 				char user_name[40];
+ 				unsigned int user_name_length = slash-source;

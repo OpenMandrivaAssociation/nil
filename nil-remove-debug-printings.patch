@@ -1,0 +1,11 @@
+--- ./nil/nil/configuration.cpp.gege	Tue Oct 10 02:41:51 2000
++++ ./nil/nil/configuration.cpp	Tue Oct 10 02:42:43 2000
+@@ -260,7 +260,7 @@
+ 	add_option(
+ 		"chattiness",
+ 		"The number of messages that NiL surts out. [5:assert, 4:debug, 3:message, 2:warning, 1:error, 0:fatal] (default: 4)",
+-		"4",
++		"0",
+ 		0,5,true
+ 	);
+ 

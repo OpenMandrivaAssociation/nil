@@ -1,0 +1,21 @@
+--- ./nil/nil/Makefile.am.gege	Mon Oct  9 23:57:21 2000
++++ ./nil/nil/Makefile.am	Mon Oct  9 23:59:05 2000
+@@ -1,4 +1,7 @@
+ ####### kdevelop will overwrite this part!!! (begin)##########
++
++DEFS = -DPKGDATADIR=\"$(datadir)/nil\" @DEFS@
++
+ bin_PROGRAMS = nil
+ nil_SOURCES = obj_grenade.cpp obj_clusterbomb.cpp obj_weapon_clusterbomb.cpp obj_weapon_rocket.cpp obj_weapon_mininuke.cpp obj_weapon_larpa.cpp obj_rocket.cpp soundsystem.cpp event.cpp event_target.cpp menu_item.cpp menu.cpp obj_weapon_bignuke.cpp obj_tinygranade.cpp obj_bignuke.cpp update_queue.cpp keymapper_bindings.cpp keymapper.cpp animations.cpp anim_helpers.cpp animation.cpp obj_weapon_plasmagun.cpp obj_plasmaball.cpp fonts.cpp nil_files.cpp game_client.cpp configuration.cpp font_instance.cpp font_glyph.cpp icon_graph.cpp icon_base.cpp animator.cpp tcp_socket.cpp serializer_writer.cpp serializer_reader.cpp serializer.cpp serializable.cpp nil_math.cpp obj_railslug.cpp obj_weapon_railgun.cpp raw_surface.cpp obj_weapon_megashotgun.cpp obj_scoreboard.cpp graphic_bar.cpp obj_hook.cpp obj_weapon_shotgun.cpp obj_weapon_minigun.cpp obj_projectile.cpp obj_weapon_test.cpp obj_weapon.cpp obj_gib.cpp tcp_client.cpp nil_client.cpp nil_main.cpp nil_server.cpp tcp_server_connection.cpp tcp_server.cpp obj_player_data.cpp obj_particle.cpp controls.cpp obj_player.cpp clientworld.cpp serverworld.cpp world.cpp viewport.cpp obj_test.cpp obj_explosion.cpp obj_base.cpp loader.cpp graphics.cpp graphic.cpp fluff.cpp 
+ nil_LDADD   = -lSDL -lSDL_mixer -L/usr/X11R6/lib -lXxf86dga -lXxf86vm -lpthread -lz -lXext -lX11
+--- ./nil/nil/configuration.cpp.gege	Mon Oct  9 23:59:38 2000
++++ ./nil/nil/configuration.cpp	Tue Oct 10 00:00:00 2000
+@@ -159,7 +159,7 @@
+ 		"default.lump\tgfx/ripped\tgfx/original",
+ #else
+ 		"The filename of either the .lump file or the directory where data can be found (default is: ~/nil/gfx/ripped and ~/nil/gfx/original)",
+-		"default.lump\t~/nil/gfx/ripped\t~/nil/gfx/original",
++		"default.lump\t" PKGDATADIR "/gfx/ripped\t" PKGDATADIR "/gfx/original\t~/nil/gfx/ripped\t~/nil/gfx/original",
+ #endif
+ 		0,0,false,
+ 		true

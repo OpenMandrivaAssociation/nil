@@ -1,0 +1,32 @@
+diff -ur nil/nil/nil/keymapper.cpp nil.new/nil/nil/keymapper.cpp
+--- nil/nil/nil/keymapper.cpp	Sun Feb 13 19:56:06 2000
++++ nil.new/nil/nil/keymapper.cpp	Tue Oct 10 01:22:10 2000
+@@ -33,6 +33,9 @@
+ 	bindings->addbinding(SDLK_LCTRL, KEYFUNCTION::PLAYER1 | KEYFUNCTION::FIRE     ,"key_Player1_fire",      "p1 Fire");
+ 	bindings->addbinding(SDLK_LSHIFT,KEYFUNCTION::PLAYER1 | KEYFUNCTION::JUMP     ,"key_Player1_jump",      "p1 Jump");
+ 	bindings->addbinding(SDLK_LALT,  KEYFUNCTION::PLAYER1 | KEYFUNCTION::DIG      ,"key_Player1_dig",       "p1 Dig");
++	
++	char *p = getenv("LANG");
++	if (!p || strncmp(p, "us", 2) == 0 || strncmp(p, "en", 2) == 0) { /* default key bindings */
+ 	bindings->addbinding(SDLK_z,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_FIRE,"key_Player1_hook_fire", "p1 Fire hook");
+ 	bindings->addbinding(SDLK_x,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_RELEASE,"key_Player1_hook_release", "p1 Release hook");
+ 	bindings->addbinding(SDLK_a,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_IN,  "key_Player1_hook_in",   "p1 reel out hook");
+@@ -60,6 +63,18 @@
+ 	bindings->addbinding(SDLK_KP_MINUS,    KEYFUNCTION::PLAYER2 | KEYFUNCTION::WEAPON3,  "key_Player2_weapon3",   "p2 weapon 3");
+ 	bindings->addbinding(SDLK_KP_PLUS,     KEYFUNCTION::PLAYER2 | KEYFUNCTION::WEAPON4,  "key_Player2_weapon4",   "p2 weapon 4");
+ 	bindings->addbinding(SDLK_KP_EQUALS,   KEYFUNCTION::PLAYER2 | KEYFUNCTION::WEAPON5,  "key_Player2_weapon5",   "p2 weapon 5");
++
++	} else { /* more standard keys that should work everywhere */
++	bindings->addbinding(SDLK_x,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_FIRE,"key_Player1_hook_fire", "p1 Fire hook");
++	bindings->addbinding(SDLK_c,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_RELEASE,"key_Player1_hook_release", "p1 Release hook");
++	bindings->addbinding(SDLK_s,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_IN,  "key_Player1_hook_in",   "p1 reel out hook");
++	bindings->addbinding(SDLK_d,     KEYFUNCTION::PLAYER1 | KEYFUNCTION::HOOK_OUT, "key_Player1_hook_out",  "p1 reel in hook");
++	bindings->addbinding(SDLK_KP1,  KEYFUNCTION::PLAYER1 | KEYFUNCTION::WEAPON1,  "key_Player1_weapon1",   "p1 weapon 1");
++	bindings->addbinding(SDLK_KP2,  KEYFUNCTION::PLAYER1 | KEYFUNCTION::WEAPON2,  "key_Player1_weapon2",   "p1 weapon 2");
++	bindings->addbinding(SDLK_KP3,  KEYFUNCTION::PLAYER1 | KEYFUNCTION::WEAPON3,  "key_Player1_weapon3",   "p1 weapon 3");
++	bindings->addbinding(SDLK_KP4,  KEYFUNCTION::PLAYER1 | KEYFUNCTION::WEAPON4,  "key_Player1_weapon4",   "p1 weapon 4");
++	bindings->addbinding(SDLK_KP5,  KEYFUNCTION::PLAYER1 | KEYFUNCTION::WEAPON5,  "key_Player1_weapon5",   "p1 weapon 5");
++	}
+ }
+ 
+ //----------------------------------------------------------------------------
