@@ -24,7 +24,7 @@ Patch3: nil-000516-gcc31.patch
 Patch4:		nil-64.patch
 Patch5:		nil-000516-gcc43.patch
 Patch6:		nil-gcc44.patch
-URL:		http://nil.sf.net/
+URL:		https://nil.sf.net/
 BuildRequires:	SDL-devel 
 BuildRequires:  SDL_mixer-devel 
 BuildRequires:  zlib-devel
