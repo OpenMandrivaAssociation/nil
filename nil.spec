@@ -25,6 +25,11 @@ Patch4:		nil-64.patch
 Patch5:		nil-000516-gcc43.patch
 Patch6:		nil-gcc44.patch
 URL:		https://nil.sf.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	SDL-devel 
 BuildRequires:  SDL_mixer-devel 
 BuildRequires:  zlib-devel
